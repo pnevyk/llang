@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>llang evaluation</title>
+        <!-- include llang script -->
+        <script charset="utf-8" src="../dest/build.js"></script>
+        <script charset="utf-8">
+            var formula, evaluation;
+
+            while (formula !== '') {
+                formula = prompt('Type a formula');
+                evaluation = prompt('Type evaluation for variables separated by space (for A=1, B=0 type `1 0`)');
+                evaluation = evaluation.split(' ');
+                evaluation = evaluation.map(function (i) { return +i });
+                evaluation = llang.evaluate(formula, evaluation);
+                alert('Result: ' + evaluation);
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
