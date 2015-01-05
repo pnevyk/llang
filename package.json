@@ -1,7 +1,7 @@
 {
   "name": "llang",
   "description": "An interpreter of well-formed formulas in propositional calculus.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Petr Nevyhoštěný <petr.nevyhosteny@gmail.com>",
   "main": "index.js",
   "scripts": {

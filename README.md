@@ -8,6 +8,9 @@ It's a pleasure to introduce you __llang__ - an interpreter of well-formed formu
 llang.evaluate('A | B', [1, 0]); //returns true
 llang.evaluate('A & B', [0, 1]); //returns false
 llang.evaluate('(A -> (B -> C)) -> ((A -> B) -> (A -> C))', [0, 0, 0]); //returns true
+
+llang.evaluateAll('A -> B'); //returns [ true, true, false, true ]
+llang.evaluateAll('(A | C) -> (A & B)'); //returns [ true, false, true, false, false, false, true, true ]
 ```
 
 ## Installation
