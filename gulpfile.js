@@ -12,7 +12,7 @@ var gulp = require('gulp'),
     depsOrder = require('gulp-deps-order');
 
 var pkg = require('./package.json'),
-    banner = '/* <%= name -> */\n',
+    banner = '/* <%= pkg.name %> <%= pkg.version %> by <%= pkg.author %> */\n',
     prepend = '(function () { \'use strict\';\n\n',
     append = '})();';
 
@@ -21,6 +21,7 @@ gulp.task('build', function () {
         .pipe(depsOrder())
         .pipe(concat('build.js', {newLine: '\n\n'}))
         .pipe(insert.wrap(prepend, append))
+        .pipe(header(banner, { pkg : pkg }))
         .pipe(beautify())
         .pipe(gulp.dest('dest'))
         .pipe(uglify())
