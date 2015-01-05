@@ -2,6 +2,11 @@ function clone(obj) {
     return JSON.parse(JSON.stringify(obj));
 }
 
+//for n = 2 it returns
+// [ 0, 0 ]
+// [ 0, 1 ]
+// [ 1, 0 ]
+// [ 1, 1 ]
 function generateCombinations(n) {
     var combs = [];
     var comb;
