@@ -76,3 +76,30 @@ describe('Evaluate', function() {
         });
     });
 });
+
+describe('Evaluate', function() {
+    it('should evaluate formulas into the correct result with all evaluation possibilities', function () {
+        var examples = [
+            {
+                formula: 'A | B',
+                result: [ 0, 1, 1, 1 ]
+            },
+            {
+                formula: 'A -> B',
+                result: [ 1, 1, 0, 1 ]
+            },
+            {
+                formula: '(A | C) -> (A & B)',
+                result: [ 1, 0, 1, 0, 0, 0, 1, 1 ]
+            },
+            {
+                formula: '(A & C) <-> (!B & D)',
+                result: [ 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0 ]
+            }
+        ];
+
+        examples.forEach(function (e) {
+            expect(llang.evaluateAll(e.formula)).to.eql(e.result);
+        });
+    });
+});
